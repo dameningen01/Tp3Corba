@@ -1,0 +1,11 @@
+interface Compte {
+
+ float lire_montant(out float solde);
+ void crediter(in float somme_credit, out float solde);
+ void debiter(in float somme_debit, out float solde);
+};
+interface CompteCourant : Compte {
+	attribute boolean DecouvertAutorise; 
+};
+interface CompteEpargne : Compte {attribute float taux ;} ;
+interface CompteCourantRemunere : CompteCourant, CompteEpargne {};
